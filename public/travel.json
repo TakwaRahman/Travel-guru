@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "title": "Sajek Valley",
+        "image": "https://i.ibb.co.com/MxCYByT5/Sajek.png",
+        "description": "Sajek Valley is one of the most beautiful tourist destinations in Bangladesh, known for its hills, clouds, and natural beauty."
+    },
+    {
+        "id": 2,
+        "title": "Sreemangal",
+        "image": "https://i.ibb.co.com/V029nC92/Sreemongol.png",
+        "description": "Sreemangal is famous for its tea gardens, green landscapes, and peaceful environment located in Sylhet."
+    },
+    {
+        "id": 3,
+        "title": "Sundarban",
+        "image": "https://i.ibb.co.com/Xkr22Tzv/sundorbon.png",
+        "description": "The Sundarbans is the largest mangrove forest in the world and home of the Royal Bengal Tiger."
+    }
+]
