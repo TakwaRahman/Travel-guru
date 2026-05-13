@@ -20,8 +20,7 @@ const Login = () => {
 
 
         signInUser(email, pass).then(result => {
-            const user = result.user;
-            navigate(`${location.state ? location.state : '/'}`)
+            navigate(location.state || '/')
         })
             .catch((error) => {
                 console.log(error)

@@ -42,7 +42,7 @@ const NavBar = () => {
                         </li>
                         <li>Blog</li>
                         <li>Contact</li>
-                        <Link to='/login'>{user ? <button onClick={handleLogOut} className='btn bg-[#F9A51A] text-black'>LogOut</button> : <button className="btn bg-[#F9A51A] text-black">Login</button>}</Link>
+                        {user ? <button onClick={handleLogOut} className='btn bg-[#F9A51A] text-black'>LogOut</button> : <Link to='/login'><button className="btn bg-[#F9A51A] text-black">Login</button></Link>}
 
                     </ul>
                 </div>
