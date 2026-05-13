@@ -1,10 +1,16 @@
+import { Link } from "react-router-dom";
+
+import fbImg from "../../assets/icons/fb.png";
+import googleImg from "../../assets/icons/google.png";
+
 const Login = () => {
     return (
-        <div className="bg-white flex justify-center items-center px-5">
+        <div className="min-h-screen bg-white flex flex-col justify-center items-center px-5 py-10">
 
-            <div className="border-2 w-150 hover:border-black p-10 bg-[#F5F5F5]">
+            {/* LOGIN FORM */}
+            <div className="w-full max-w-xl border border-gray-300 bg-[#F8F8F8] p-10 rounded-sm shadow-sm">
 
-                <h1 className="text-2xl font-bold text-black mb-5">
+                <h1 className="text-4xl font-bold text-black mb-12">
                     Login
                 </h1>
 
@@ -15,7 +21,7 @@ const Login = () => {
                         <input
                             type="email"
                             placeholder="Username or Email"
-                            className="w-full bg-transparent border-b border-gray-400 outline-none py-3 text-black placeholder:text-gray-700"
+                            className="w-full bg-transparent border-b border-gray-300 outline-none py-3 text-black placeholder:text-black"
                         />
                     </div>
 
@@ -24,7 +30,7 @@ const Login = () => {
                         <input
                             type="password"
                             placeholder="Password"
-                            className="w-full bg-transparent border-b border-gray-400 outline-none py-3 text-black placeholder:text-gray-700"
+                            className="w-full bg-transparent border-b border-gray-300 outline-none py-3 text-black placeholder:text-black"
                         />
                     </div>
 
@@ -32,30 +38,93 @@ const Login = () => {
                     <div className="flex justify-between items-center text-sm">
 
                         <label className="flex items-center gap-2 text-black cursor-pointer">
-                            <input type="checkbox" className="checkbox bg-white text-black checkbox-xs rounded-none" />
+
+                            <input
+                                type="checkbox"
+                                className="checkbox checkbox-xs rounded-none bg-white border-gray-400"
+                            />
+
                             Remember Me
+
                         </label>
 
-                        <a href="#" className="text-[#F9A51A] underline">
+                        <a
+                            href="#"
+                            className="text-[#F9A51A] underline"
+                        >
                             Forgot Password
                         </a>
 
                     </div>
 
-                    {/* Button */}
-                    <button className="w-full bg-[#F9A51A] hover:bg-yellow-500 text-black py-3 font-medium transition-all">
+                    {/* Login Button */}
+                    <button
+                        className="w-full bg-[#F9A51A] hover:bg-yellow-500 text-black py-4 font-medium transition-all"
+                    >
                         Login
                     </button>
 
                     {/* Register */}
-                    <p className="text-center text-black text-sm">
+                    <p className="text-center text-black">
+
                         Don’t have an account?{" "}
-                        <span className="text-[#F9A51A] underline cursor-pointer">
+
+                        <Link
+                            to="/register"
+                            className="text-[#F9A51A] underline"
+                        >
                             Create an account
-                        </span>
+                        </Link>
+
                     </p>
 
                 </form>
+
+            </div>
+
+            {/* SOCIAL LOGIN */}
+            <div className="w-full max-w-xl mt-8">
+
+                {/* Divider */}
+                <div className="flex items-center gap-5 mb-8">
+
+                    <div className="flex-1 h-[1px] bg-gray-300"></div>
+
+                    <p className="text-black">Or</p>
+
+                    <div className="flex-1 h-[1px] bg-gray-300"></div>
+
+                </div>
+
+                {/* Facebook */}
+                <button className="w-full border border-gray-300 bg-white rounded-full py-4 px-6 flex items-center gap-6 mb-5 hover:bg-gray-50 transition-all">
+
+                    <img
+                        src={fbImg}
+                        className="w-10 h-10"
+                        alt=""
+                    />
+
+                    <span className="text-black font-medium text-lg">
+                        Continue with Facebook
+                    </span>
+
+                </button>
+
+                {/* Google */}
+                <button className="w-full border border-gray-300 bg-white rounded-full py-4 px-6 flex items-center gap-6 hover:bg-gray-50 transition-all">
+
+                    <img
+                        src={googleImg}
+                        className="w-10 h-10"
+                        alt=""
+                    />
+
+                    <span className="text-black font-medium text-lg">
+                        Continue with Google
+                    </span>
+
+                </button>
 
             </div>
 

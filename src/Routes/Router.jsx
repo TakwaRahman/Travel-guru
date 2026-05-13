@@ -3,6 +3,7 @@ import HomeLayouts from "../HomeLayouts/HomeLayouts";
 import Home from "../component/Home/Home";
 import Booking from "../component/Booking/Booking";
 import Login from "../component/Login/Login";
+import Register from "../component/Register/Register";
 
 
 const router = createBrowserRouter([
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login></Login>
+            },
+            {
+                path: "/register",
+                element: <Register></Register>
             }
         ]
     },

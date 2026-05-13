@@ -8,7 +8,7 @@ const NavBar = () => {
 
     const location = useLocation();
 
-    const isBookingPage = location.pathname.startsWith('/booking') || location.pathname.startsWith('/login')
+    const isBookingPage = location.pathname.startsWith('/booking') || location.pathname.startsWith('/login') || location.pathname.startsWith('/register')
 
     return (
         <div className={`max-lg:collapse lg:mb-48 rounded-md ${isBookingPage ? "bg-white text-black": "text-white"}`}>
