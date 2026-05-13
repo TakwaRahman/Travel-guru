@@ -4,6 +4,7 @@ import Home from "../component/Home/Home";
 import Booking from "../component/Booking/Booking";
 import Login from "../component/Login/Login";
 import Register from "../component/Register/Register";
+import PrivateRoute from "../Provider/PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -19,7 +20,9 @@ const router = createBrowserRouter([
             {
 
                 path: "/booking/:place",
-                element: <Booking />,
+                element: <PrivateRoute>
+                    <Booking></Booking>
+                </PrivateRoute>,
                 loader: () => fetch('/resote.json')
 
             },

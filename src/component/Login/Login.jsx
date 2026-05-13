@@ -1,9 +1,34 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import fbImg from "../../assets/icons/fb.png";
 import googleImg from "../../assets/icons/google.png";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { useContext } from "react";
 
 const Login = () => {
+
+    const { signInUser } = useContext(AuthContext)
+    const navigate = useNavigate()
+    const location = useLocation();
+
+    const handleLogin = (e) => {
+        e.preventDefault()
+
+        const form = e.target;
+        const email = form.email.value;
+        const pass = form.pass.value;
+
+
+        signInUser(email, pass).then(result => {
+            const user = result.user;
+            navigate(`${location.state ? location.state : '/'}`)
+        })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+
+
     return (
         <div className="min-h-screen bg-white flex flex-col justify-center items-center px-5 py-10">
 
@@ -14,11 +39,12 @@ const Login = () => {
                     Login
                 </h1>
 
-                <form className="space-y-8">
+                <form onSubmit={handleLogin} className="space-y-8">
 
                     {/* Email */}
                     <div>
                         <input
+                            name="email"
                             type="email"
                             placeholder="Username or Email"
                             className="w-full bg-transparent border-b border-gray-300 outline-none py-3 text-black placeholder:text-black"
@@ -28,6 +54,7 @@ const Login = () => {
                     {/* Password */}
                     <div>
                         <input
+                            name="pass"
                             type="password"
                             placeholder="Password"
                             className="w-full bg-transparent border-b border-gray-300 outline-none py-3 text-black placeholder:text-black"

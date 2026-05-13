@@ -2,10 +2,26 @@
 import { Link } from "react-router";
 import fbImg from "../../assets/icons/fb.png"
 import googleImg from "../../assets/icons/google.png"
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 
 
 const Register = () => {
+
+    const { createUser } = useContext(AuthContext)
+
+    const handleRegister = (e) => {
+        e.preventDefault()
+        const form = e.target;
+        const email = form.email.value;
+        const pass = form.pass.value;
+
+        createUser(email, pass).then((() => alert("User Register Succesfully"))).catch((error) => {
+            alert("User Register NOt Succesfully", error)
+        })
+    }
+
     return (
         <div className="min-h-screen bg-white flex flex-col justify-center items-center px-5 py-10">
 
@@ -16,7 +32,7 @@ const Register = () => {
                     Create an account
                 </h1>
 
-                <form className="space-y-8">
+                <form onSubmit={handleRegister} className="space-y-8">
 
                     <input
                         type="text"
@@ -31,12 +47,14 @@ const Register = () => {
                     />
 
                     <input
+                        name="email"
                         type="email"
                         placeholder="Username or Email"
                         className="w-full bg-transparent border-b border-gray-300 outline-none py-3 text-black"
                     />
 
                     <input
+                        name="pass"
                         type="password"
                         placeholder="Password"
                         className="w-full bg-transparent border-b border-gray-300 outline-none py-3 text-black"
